@@ -39,7 +39,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             ActivityCompat.requestPermissions(this, new String[] {
                             Manifest.permission.ACCESS_FINE_LOCATION,
                             Manifest.permission.ACCESS_COARSE_LOCATION },
-                    TAG_CODE_PERMISSION_LOCATION);
+                    1);
         }
         try {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
@@ -70,9 +70,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onLocationChanged(Location location) {
         LatLng sydney = new LatLng(location.getLatitude(), location.getLongitude());
+        mMap.clear();
         mMap.addMarker(new MarkerOptions().position(sydney).title("my location"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //mMap.setMyLocationEnabled(true);
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 17.0f));
     }
+
 
     @Override
     public void onProviderDisabled(String provider) {
