@@ -2,6 +2,7 @@ package com.vunam.googlemap;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -42,7 +43,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     1);
         }
         try {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 8000, 0, this);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,6 +76,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //mMap.setMyLocationEnabled(true);
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 17.0f));
+        Log.i("show","dfff");
     }
 
 
@@ -92,4 +94,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onStatusChanged(String provider, int status, Bundle extras) {
         Log.d("Latitude","status");
     }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//
+//        super.onActivityResult(requestCode, resultCode, data);
+//        try {
+//            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
