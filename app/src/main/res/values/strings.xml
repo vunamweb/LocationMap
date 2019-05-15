@@ -1,4 +1,44 @@
 <resources>
     <string name="app_name">GoogleMap</string>
     <string name="title_activity_maps">Map</string>
+    <!-- url near map api !-->
+    <string name="url_near_map">https://maps.googleapis.com/maps/api/place/nearbysearch/json</string>
+    <!-- url place_detail !-->
+    <string name="url_place_detail">https://maps.googleapis.com/maps/api/place/details/json</string>
+    <!-- url photoreference !-->
+    <string name="url_photoreference">https://maps.googleapis.com/maps/api/place/photo</string>
+
+
+    <!-- button text -->
+    <string name="button_text_show_bottom_sheet">Show bottom sheet</string>
+    <string name="button_text_collapse_bottom_sheet">Collapse bottom sheet</string>
+    <string name="button_text_hide_bottom_sheet">Hide bottom sheet</string>
+    <string name="button_text_show_bottom_sheet_dialog">Show bottom sheet dialog</string>
+
+    <!-- bottom sheet behavior -->
+    <string name="string_bottom_sheet_behavior">android.support.design.widget.BottomSheetBehavior</string>
+
+    <string name="text_pull_to_show_more">pull to show more content</string>
+    <string name="text_showing_sheet_content">Bottom sheet content</string>
+    <string name="text_click_me">Click me</string>
+
+    <string name="text_more_contet_to_user">
+        We can show the user more content here. Add more UI widgets, texts etc.
+    </string>
+
+    <string name="text_lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </string>
+
+    <string name="explode_near">
+        Explode Near
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
