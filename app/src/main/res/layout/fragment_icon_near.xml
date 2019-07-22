@@ -1,120 +1,137 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bootom_sheet"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:elevation="@dimen/z_bottom_sheet"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
+    <HorizontalScrollView
+        android:id="@+id/icon_near"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light"
+        android:fillViewport="true"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="180dp"
+        app:layout_behavior="@string/string_bottom_sheet_behavior">
 
-    <TextView
-        android:id="@+id/textViewExploreNear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Explore Near" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/z_bottom_sheet"
+            android:gravity="center">
 
-    <ImageView
-        android:id="@+id/imageViewRestaurant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewExploreNear"
-        android:src="@drawable/restaurant" />
+            <TextView
+                android:id="@+id/textViewExploreNear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Explore Near" />
 
-    <TextView
-        android:id="@+id/textViewRestaurant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageViewRestaurant"
-        android:text="Restaurant" />
+            <ImageView
+                android:id="@+id/imageViewRestaurant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewExploreNear"
+                android:src="@drawable/restaurant" />
 
-    <ImageView
-        android:id="@+id/imageViewcoffee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewExploreNear"
-        android:layout_toRightOf="@+id/textViewRestaurant"
-        android:paddingLeft="20dp"
-        android:src="@drawable/coffee" />
+            <TextView
+                android:id="@+id/textViewRestaurant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewRestaurant"
+                android:text="Restaurant" />
 
-    <TextView
-        android:id="@+id/textViewcoffee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageViewcoffee"
-        android:layout_toRightOf="@+id/textViewRestaurant"
-        android:paddingLeft="20dp"
-        android:text="Coffee" />
+            <ImageView
+                android:id="@+id/imageViewcoffee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewExploreNear"
+                android:layout_toRightOf="@+id/textViewRestaurant"
+                android:paddingLeft="20dp"
+                android:src="@drawable/coffee" />
 
-    <ImageView
-        android:id="@+id/imageViewPark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewExploreNear"
-        android:layout_toRightOf="@+id/textViewcoffee"
-        android:paddingLeft="20dp"
-        android:src="@drawable/park" />
+            <TextView
+                android:id="@+id/textViewcoffee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewcoffee"
+                android:layout_toRightOf="@+id/textViewRestaurant"
+                android:paddingLeft="20dp"
+                android:text="Coffee" />
 
-    <TextView
-        android:id="@+id/textViewPark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageViewPark"
-        android:layout_toRightOf="@+id/textViewcoffee"
-        android:paddingLeft="20dp"
-        android:text="Park" />
+            <ImageView
+                android:id="@+id/imageViewPark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewExploreNear"
+                android:layout_toRightOf="@+id/textViewcoffee"
+                android:paddingLeft="20dp"
+                android:src="@drawable/park" />
 
-    <ImageView
-        android:id="@+id/imageViewkaraoke"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewExploreNear"
-        android:layout_toRightOf="@+id/textViewPark"
-        android:paddingLeft="20dp"
-        android:src="@drawable/karaoke" />
+            <TextView
+                android:id="@+id/textViewPark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewPark"
+                android:layout_toRightOf="@+id/textViewcoffee"
+                android:paddingLeft="20dp"
+                android:text="Park" />
 
-    <TextView
-        android:id="@+id/textViewKaraoke"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageViewkaraoke"
-        android:layout_toRightOf="@+id/textViewPark"
-        android:paddingLeft="20dp"
-        android:text="Karaoke" />
+            <ImageView
+                android:id="@+id/imageViewkaraoke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewExploreNear"
+                android:layout_toRightOf="@+id/textViewPark"
+                android:paddingLeft="20dp"
+                android:src="@drawable/karaoke" />
 
-    <ImageView
-        android:id="@+id/imageViewAtm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewExploreNear"
-        android:layout_toRightOf="@+id/textViewKaraoke"
-        android:paddingLeft="20dp"
-        android:src="@drawable/atm" />
+            <TextView
+                android:id="@+id/textViewKaraoke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewkaraoke"
+                android:layout_toRightOf="@+id/textViewPark"
+                android:paddingLeft="20dp"
+                android:text="Karaoke" />
 
-    <TextView
-        android:id="@+id/textViewAtm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageViewAtm"
-        android:layout_toRightOf="@+id/textViewKaraoke"
-        android:paddingLeft="20dp"
-        android:text="Atm" />
+            <ImageView
+                android:id="@+id/imageViewAtm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewExploreNear"
+                android:layout_toRightOf="@+id/textViewKaraoke"
+                android:paddingLeft="20dp"
+                android:src="@drawable/atm" />
 
-    <ImageView
-        android:id="@+id/imageViewAirport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewExploreNear"
-        android:layout_toRightOf="@+id/textViewAtm"
-        android:paddingLeft="20dp"
-        android:src="@drawable/airport" />
+            <TextView
+                android:id="@+id/textViewAtm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewAtm"
+                android:layout_toRightOf="@+id/textViewKaraoke"
+                android:paddingLeft="20dp"
+                android:text="Atm" />
 
-    <TextView
-        android:id="@+id/textViewAirport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageViewAirport"
-        android:layout_toRightOf="@+id/textViewAtm"
-        android:paddingLeft="20dp"
-        android:text="Airport" />
-</RelativeLayout>
+            <ImageView
+                android:id="@+id/imageViewAirport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewExploreNear"
+                android:layout_toRightOf="@+id/textViewAtm"
+                android:paddingLeft="20dp"
+                android:src="@drawable/airport" />
+
+            <TextView
+                android:id="@+id/textViewAirport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewAirport"
+                android:layout_toRightOf="@+id/textViewAtm"
+                android:paddingLeft="20dp"
+                android:text="Airport" />
+        </RelativeLayout>
+
+    </HorizontalScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

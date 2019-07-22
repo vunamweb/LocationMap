@@ -1,4 +1,4 @@
-package com.vunam.googlemap.recycle;
+package com.vunam.googlemap.view;
 
 import android.content.Context;
 

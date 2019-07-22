@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/text_margin"
+    android:layout_marginStart="@dimen/text_margin"
+    android:layout_marginTop="@dimen/text_margin"
+    tools:context=".fragment.Review">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:id="@+id/layoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/text_size_big"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageViewDirection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="48dp"
+            android:src="@drawable/directions" />
+
+        <ImageView
+            android:id="@+id/imageViewPhoneCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imageViewDirection"
+            android:paddingLeft="@dimen/text_size_big"
+            android:src="@drawable/phone_call" />
+
+        <ImageView
+            android:id="@+id/imageViewShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/text_size_big"
+            android:src="@drawable/share" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="false"
+        android:layout_below="@+id/layoutTop"
+        android:layout_toRightOf="@+id/image_location"
+        android:paddingLeft="@dimen/text_margin"
+        android:text="@string/hello_blank_fragment" />
+
+    <ImageView
+        android:id="@+id/image_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutTop"
+        android:src="@drawable/locationmap" />
+
+    <View
+        android:id="@+id/viewLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/text_location"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:background="@color/cardview_dark_background" />
+
+    <TextView
+        android:id="@+id/text_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewLine"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_toRightOf="@+id/image_phone"
+        android:paddingLeft="@dimen/text_margin"
+        android:paddingTop="@dimen/text_margin"
+        android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/image_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewLine"
+        android:layout_marginTop="@dimen/text_margin"
+        android:paddingTop="@dimen/text_margin"
+        android:src="@drawable/phone" />
+
+</RelativeLayout>

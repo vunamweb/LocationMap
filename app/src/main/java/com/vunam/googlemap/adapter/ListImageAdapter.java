@@ -3,6 +3,7 @@ package com.vunam.googlemap.adapter;
 import android.content.Context;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.vunam.googlemap.R;
-import com.vunam.googlemap.fragment.ItemFragment.OnListFragmentInteractionListener;
+import com.vunam.googlemap.fragment.ReviewComment;
 import com.vunam.googlemap.model.LocationNear;
 import com.vunam.googlemap.model.Photo;
 import com.vunam.mylibrary.Adapter.RecyclerViewAdapterBasic;
@@ -27,9 +28,24 @@ import java.util.List;
 
 public class ListImageAdapter extends RecyclerViewAdapterBasic<Photo> {
 
+	private int positionParentList;
+
 	public ListImageAdapter(List<Photo> data, Context context)
 	{
 		super(data,context);
+	}
+
+	public ListImageAdapter(List<Photo> data, Context context, int positionParentList) {
+		super(data, context);
+		this.positionParentList = positionParentList;
+	}
+
+	public int getPositionParentList() {
+		return positionParentList;
+	}
+
+	public void setPositionParentList(int positionParentList) {
+		this.positionParentList = positionParentList;
 	}
 
 	@Override
@@ -54,6 +70,7 @@ public class ListImageAdapter extends RecyclerViewAdapterBasic<Photo> {
 	public void bindHolder(RecyclerView.ViewHolder holder, final int position) {
 
 		RecyclerViewHolder holderItem = (RecyclerViewHolder) holder;
+		//final int postionParentListNow = this.getPositionParentList();
 
 		String apiKey = context.getResources().getString(R.string.google_maps_key);
 		String url = context.getResources().getString(R.string.url_photoreference);
@@ -72,7 +89,9 @@ public class ListImageAdapter extends RecyclerViewAdapterBasic<Photo> {
 		holder.itemView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Log.i("test","abcd");
+				//Log.i("test","abcd");
+
+				Android.transactionFragment((FragmentActivity) context,R.id.bootom_sheet,new ReviewComment(positionParentList));
 			}
 		});
 

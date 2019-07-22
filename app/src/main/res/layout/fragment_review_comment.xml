@@ -1,0 +1,74 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bootom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/review_comment"
+        android:background="@color/cardview_light_background"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="80dp"
+        app:layout_behavior="@string/string_bottom_sheet_behavior">
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="@dimen/text_size_big" />
+
+        <TextView
+            android:id="@+id/textViewNumberRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewName"
+            android:paddingTop="@dimen/text_margin"
+            android:text="TextView" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewName"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_toRightOf="@+id/textViewNumberRating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:numStars="5"
+            android:paddingTop="@dimen/text_margin" />
+
+        <TextView
+            android:id="@+id/textViewTotalComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewName"
+            android:layout_toRightOf="@+id/ratingBar"
+            android:paddingLeft="@dimen/text_margin"
+            android:paddingTop="@dimen/text_margin"
+            android:text="TextView" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textViewNumberRating"
+            android:paddingTop="@dimen/text_margin">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/brown"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="@android:color/holo_blue_bright"
+                app:tabMode="fixed" />
+
+        </android.support.v4.view.ViewPager>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

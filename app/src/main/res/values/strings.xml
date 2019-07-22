@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">GoogleMap</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">MapHha</string>
     <!-- url near map api !-->
     <string name="url_near_map">https://maps.googleapis.com/maps/api/place/nearbysearch/json</string>
     <!-- url place_detail !-->
     <string name="url_place_detail">https://maps.googleapis.com/maps/api/place/details/json</string>
     <!-- url photoreference !-->
     <string name="url_photoreference">https://maps.googleapis.com/maps/api/place/photo</string>
-
+    <!-- url photoreference !-->
+    <string name="url_direction">https://maps.googleapis.com/maps/api/directions/json</string>
 
     <!-- button text -->
     <string name="button_text_show_bottom_sheet">Show bottom sheet</string>
@@ -41,4 +42,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="typemaps">
+        <item>Normal</item>
+        <item>Hybrid</item>
+        <item>Satellite</item>
+        <item>Terrain</item>
+        <item>None</item>
+    </string-array>
+
 </resources>

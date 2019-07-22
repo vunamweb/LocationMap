@@ -13,10 +13,9 @@ import com.vunam.mylibrary.common.Constants;
  */
 
 public class ActivityBasic {
-  public static void startActivity(Context context, Class to, Bundle bundle)
-  {
-      Intent intent=new Intent(context, to);
-      intent.putExtra(Constants.INTENT_DATA,bundle);
-      context.startActivity(intent);
-  }
+    public static void startActivity(Context context, Class to, Bundle bundle) {
+        Intent intent = new Intent(context, to);
+        intent.putExtra(Constants.INTENT_DATA, bundle);
+        context.startActivity(intent);
+    }
 }

@@ -60,7 +60,7 @@ abstract public class RecycleViewBasic {
         recyclerView.setAdapter(adapter);
         //recyclerView.setLayoutManager(layoutManager);
         //recyclerView.setLayoutManager(layoutGrid);
-        //recyclerView.addItemDecoration(divider);
+        recyclerView.addItemDecoration(divider);
         return this;
     }
     public RecycleViewBasic setLayoutList()
