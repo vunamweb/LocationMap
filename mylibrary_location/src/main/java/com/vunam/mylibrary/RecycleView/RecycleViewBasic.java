@@ -7,6 +7,10 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by nvu7 on 7/3/2018.
  */
@@ -18,6 +22,7 @@ abstract public class RecycleViewBasic {
     protected RecyclerView.Adapter adapter;
     protected  int TYPE_ROTATION;//TYPE_ROTATION IS VERTICAL OR Horizontal
     protected  int TYPE_LAYOUT_ITEMDECORATION;
+    protected int[] valueWidthPositions = new int[100];
 
     public RecycleViewBasic(Context context) {
         this.context = context;
@@ -40,6 +45,7 @@ abstract public class RecycleViewBasic {
         this.adapter=adapter;
         return this;
     }
+
     public RecycleViewBasic into(RecyclerView recyclerView)
     {
         this.recyclerView=recyclerView;
@@ -63,6 +69,7 @@ abstract public class RecycleViewBasic {
         recyclerView.addItemDecoration(divider);
         return this;
     }
+
     public RecycleViewBasic setLayoutList()
     {
         //LinearLayoutManager layoutManager = new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false);
@@ -72,6 +79,7 @@ abstract public class RecycleViewBasic {
         recyclerView.setLayoutManager(layoutManager);
         return this;
     }
+
     public RecycleViewBasic setLayoutGrid()
     {
         GridLayoutManager layoutManager=new GridLayoutManager(context,2);
@@ -84,5 +92,6 @@ abstract public class RecycleViewBasic {
     {
         addScroll();
     }
+
     abstract public void  addScroll();
 }

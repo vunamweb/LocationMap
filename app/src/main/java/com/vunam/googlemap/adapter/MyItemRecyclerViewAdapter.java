@@ -86,31 +86,32 @@ public class MyItemRecyclerViewAdapter extends RecyclerViewAdapterBasic<Location
 				.setLayoutList()
 				.init();
 
-//		galery.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-//			@Override
-//			public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-//
-//				int action = e.getAction();
-//				switch (action) {
-//					case MotionEvent.ACTION_MOVE:
-//						rv.getParent().requestDisallowInterceptTouchEvent(true);
-//						break;
-//				}
-//				return false;
-//			}
-//
-//			@Override
-//			public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-//
-//			}
-//
-//			@Override
-//			public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-//
-//			}
-//
-//		});
+		if(this.layoutItem == R.layout.fragment_item_horizontal) {
+			galery.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+				@Override
+				public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
 
+					int action = e.getAction();
+					switch (action) {
+						case MotionEvent.ACTION_MOVE:
+							rv.getParent().requestDisallowInterceptTouchEvent(true);
+							break;
+					}
+					return false;
+				}
+
+				@Override
+				public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+				}
+
+				@Override
+				public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+				}
+
+			});
+		}
 //		try {
 //			Log.i("ddtest","dd");
 //			Thread.sleep(10000);

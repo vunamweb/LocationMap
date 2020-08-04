@@ -131,9 +131,39 @@ public class IconNear extends Fragment {
 	}
 
 	@OnClick(R.id.imageViewRestaurant)
-    public  void show ()
+    public  void showRestaurant ()
 	{
-		mListener.showListVertical();
+		mListener.showListVertical(R.drawable.restaurant_marker);
+	}
+
+	@OnClick(R.id.imageViewcoffee)
+	public  void showCoffee ()
+	{
+		mListener.showListVertical(R.drawable.coffee_marker);
+	}
+
+	@OnClick(R.id.imageViewPark)
+	public  void showPark ()
+	{
+		mListener.showListVertical(R.drawable.park_marker);
+	}
+
+	@OnClick(R.id.imageViewkaraoke)
+	public  void showKaraoke ()
+	{
+		mListener.showListVertical(R.drawable.karaoke_marker);
+	}
+
+	@OnClick(R.id.imageViewAtm)
+	public  void showAtm ()
+	{
+		mListener.showListVertical(R.drawable.atm_marker);
+	}
+
+	@OnClick(R.id.imageViewAirport)
+	public  void showAirport ()
+	{
+		mListener.showListVertical(R.drawable.airport_marker);
 	}
 	/**
 	 * This interface must be implemented by activities that contain this

@@ -82,8 +82,8 @@ public class ListItemVertical extends Fragment {
 				.setAdapter(myAdapter)
 				.setTypeLayoutItemDecoration(R.drawable.line_bottom_recycleview)
 				.into(recyclerView)
-				.setLayoutList()
-				.init();
+				.setLayoutList();
+
 //			if (mColumnCount <= 1) {
 //				recyclerView.setLayoutManager(new LinearLayoutManager(context));
 //			} else {

@@ -17,17 +17,20 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.vunam.googlemap.fragment.IconNear;
 import com.vunam.googlemap.fragment.InterfaceFragment;
 import com.vunam.googlemap.fragment.ListItemHorizontal;
 import com.vunam.googlemap.fragment.ListItemVertical;
 import com.vunam.googlemap.network.GetResponse;
 import com.vunam.googlemap.service.DirectionMap.DirectionMapService;
+import com.vunam.googlemap.service.ShowMap.MapService;
 import com.vunam.googlemap.service.ShowMap.ShowMapHorizontalService;
 import com.vunam.googlemap.service.ShowMap.ShowMapVerticalService;
 import com.vunam.mylibrary.GoogleMap.GoogleMapBasic;
@@ -36,6 +39,9 @@ import com.vunam.mylibrary.utils.Android;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,11 +55,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 	static public double currentLatitude;
 	static public double currentLongitude;
 	static public JSONArray listLocationNear;
+	static public List<Marker> listMarker = new ArrayList<Marker>();
 	@BindView(R.id.spiner_menu) Spinner spinerTypeMap;
 	@BindView(R.id.progressBarMap) ProgressBar progressBarMap;
 
 	public ProgressBar getProgressBarMap() {
 		return progressBarMap;
+	}
+
+	public GoogleMap getmMap() {
+		return mMap;
 	}
 
 	@Override
@@ -80,7 +91,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		}
 		try {
 			locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 20, 0, this);
-			Location myLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+			Location myLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 			currentLatitude = myLocation.getLatitude();
 			currentLongitude = myLocation.getLongitude();
 		} catch (Exception e) {
@@ -171,17 +182,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //		//mMap.setMyLocationEnabled(true);
 //        //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 //        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 17.0f));
-//        Log.i("show","dfff");
+        Log.i("show","dfff");
     }
 
 	@Override
 	public void onProviderDisabled(String provider) {
-		Log.d("Latitude", "disable");
+		//Log.d("Latitude", "disable");
+		Toast.makeText(getBaseContext(), "turned off ", Toast.LENGTH_LONG).show();
 	}
 
 	@Override
 	public void onProviderEnabled(String provider) {
-		Log.d("Latitude", "enable");
+		//Log.d("Latitude", "enable");
+		Toast.makeText(getBaseContext(), "turned on ", Toast.LENGTH_LONG).show();
 	}
 
     @Override
@@ -201,10 +214,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 	}
 
 	@Override
-	public void showListVertical() {
+	public void showListVertical(int typeMap) {
 //		Android.MyProgressDialog.getInstance(MapsActivity.this).show();
 		Android.MyProgressBar.getInstance(MapsActivity.this,progressBarMap).show();
-		new ShowMapVerticalService(MapsActivity.this, mMap).execute();
+		new MapService(MapsActivity.this,mMap).setTypeMap(typeMap).ShowMapVertical();
 	}
 
 	@Override
@@ -220,7 +233,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 	@Override
 	public void showListHorizontal() {
-		new ShowMapHorizontalService(MapsActivity.this,mMap).execute();
+		new MapService(MapsActivity.this,mMap).ShowMapHorizontal();
 	}
 
 

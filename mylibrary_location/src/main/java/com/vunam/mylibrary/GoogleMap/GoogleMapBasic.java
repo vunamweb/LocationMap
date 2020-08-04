@@ -4,12 +4,19 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v4.app.ActivityCompat;
+import android.widget.ImageView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.vunam.mylibrary.LoadImg.ImgPicasso;
+import com.vunam.mylibrary.R;
 
 public class GoogleMapBasic {
    Boolean myLocationEnable;
@@ -43,10 +50,17 @@ public class GoogleMapBasic {
       mMap.setMyLocationEnabled(myLocationEnable);
    }
 
-   public void addMarker(LatLng positionCurrent,String title)
+   public Marker addMarker(LatLng positionCurrent, String title, int bitmap)
    {
-      mMap.addMarker(new MarkerOptions().position(positionCurrent).title(title));
+	   Marker marker = mMap.addMarker(new MarkerOptions().position(positionCurrent).title(title));
+	   marker.setIcon(BitmapDescriptorFactory.fromResource(bitmap));
+	   return marker;
    }
+
+	public Marker addMarker(LatLng positionCurrent, String title) {
+		Marker marker = mMap.addMarker(new MarkerOptions().position(positionCurrent).title(title));
+		return marker;
+	}
 
    public void animateCamera(LatLng position,Float zoom){
       mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(position, zoom));

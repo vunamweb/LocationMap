@@ -1,10 +1,15 @@
 package com.vunam.googlemap.service.ShowMap;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.widget.ProgressBar;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 import com.vunam.googlemap.MapsActivity;
 import com.vunam.googlemap.R;
 import com.vunam.googlemap.fragment.ListItemVertical;
@@ -16,6 +21,8 @@ import com.vunam.mylibrary.utils.Android;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+
 
 public class ShowMapVerticalService extends ProcessAsyncTask {
 	Context context;
@@ -67,31 +74,52 @@ public class ShowMapVerticalService extends ProcessAsyncTask {
 
 	@Override
 	public void updateGUI(Object result) {
-		JSONObject jsonObject = (JSONObject) result;
-		JSONArray jsonArray = jsonObject.optJSONArray("results");
-		ProgressBar progressBar = ((MapsActivity)context).getProgressBarMap();
-
-		//Android.MyProgressDialog.getInstance(context).hide();
-		Android.MyProgressBar.getInstance(context,progressBar).hide();
-
-		MapsActivity.listLocationNear = jsonArray;
 		double latitude, longitude;
 
-		//add market
+		JSONObject jsonObject = (JSONObject) result;
+		JSONArray jsonArray = jsonObject.optJSONArray("results");
+
+		ProgressBar progressBar = ((MapsActivity) context).getProgressBarMap();
+		Android.MyProgressBar.getInstance(context, progressBar).hide();
+
+		MapsActivity.listLocationNear = jsonArray;
+
+//add market
 		for (int i = 0; i < jsonArray.length(); i++) {
 			try {
+				//Log.i("mapz",String.valueOf(i));
 				latitude = jsonArray.getJSONObject(i).optJSONObject("geometry").optJSONObject("location").getDouble("lat");
 				longitude = jsonArray.getJSONObject(i).optJSONObject("geometry").optJSONObject("location").getDouble("lng");
-				LatLng position = new LatLng(latitude, longitude);
-				GoogleMapBasic.getInstance(mMap, context).addMarker(position, "location");
+				final String title = jsonArray.getJSONObject(i).getString("name");
+				final String imageUrl = jsonArray.getJSONObject(i).getString("icon");
+				final LatLng position = new LatLng(latitude, longitude);
+//				Picasso.with(context).load(imageUrl).into(new Target() {
+//					@Override
+//					public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+//						// loaded bitmap is here (bitmap)
+//						//Log.i("mapz","mapz");
+//						MapsActivity.listMarker.add(GoogleMapBasic.getInstance(mMap, context).addMarker(position, title, bitmap));
+//					}
+//
+//					@Override
+//					public void onBitmapFailed(Drawable errorDrawable) {
+//					}
+//
+//					@Override
+//					public void onPrepareLoad(Drawable placeHolderDrawable) {
+//					}
+//				});
+				MapsActivity.listMarker.add(GoogleMapBasic.getInstance(mMap, context).addMarker(position, title,R.drawable.restaurant_marker));
 				//mMap.addMarker(new MarkerOptions().position(sydney).title("my location"));
 				//mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 17.0f));
 			} catch (JSONException e) {
 				e.printStackTrace();
+				Log.e("error", String.valueOf(i));
 			}
 
 		}
 		Android.transactionFragment((MapsActivity) context, R.id.bootom_sheet, new ListItemVertical());
+		//MapsActivity.listMarker.get(5).showInfoWindow();
 	}
 }
 
